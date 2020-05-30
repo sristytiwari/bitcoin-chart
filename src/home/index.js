@@ -13,7 +13,7 @@ export default class HomePage extends Component {
       labels: [],
       datasets: [
         {
-          label: "Bitcoin live",
+          label: "Bitcoin live BTC",
           fill: false,
           lineTension: 0.1,
           backgroundColor: "rgba(75,192,192,0.4)",
