@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
+import Moment from 'moment';
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export default class HomePage extends Component {
       labels: [],
       datasets: [
         {
-          label: "My First dataset",
+          label: "Bitcoin live",
           fill: false,
           lineTension: 0.1,
           backgroundColor: "rgba(75,192,192,0.4)",
@@ -78,7 +79,7 @@ export default class HomePage extends Component {
   formatAndSetData = (payload) => {
     let last = payload.last;
     let timestamp = payload.timestamp;
-    this.chartsjs.chartInstance.data.labels.push(timestamp);
+    this.chartsjs.chartInstance.data.labels.push(Moment(new Date(timestamp)).format('MMM Do h:mm A'));
     this.chartsjs.chartInstance.data.datasets[0].data.push(last);
     this.chartsjs.chartInstance.update({
       preservation: true,
