@@ -51,7 +51,6 @@ export default class HomePage extends Component {
     })
       .then((res) => res.json())
       .then((response) => {
-        console.log(response);
         this.formatAndSetData(response);
         this.setState({
           allData: [...this.state.allData, response],
@@ -59,22 +58,7 @@ export default class HomePage extends Component {
       });
   };
 
-  getTicket = () => {
-    fetch("https://apiv2.bitcoinaverage.com/websocket/v3/get_ticket", {
-      method: "GET",
-
-      headers: {
-        "x-ba-key": "ZDJjOWViNDJkZDY5NGJmNTgwMGFiNWU2YzI5M2M2YTc",
-      },
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        console.log(response);
-        this.setState({
-          ticket: response.ticket,
-        });
-      });
-  };
+  
 
   formatAndSetData = (payload) => {
     let last = payload.last;
